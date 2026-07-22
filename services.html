@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الخدمات | نظام صفاء الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#080A14">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="loader">
+  <span class="loader-logo">💎</span>
+  <span class="loader-text">نظام صفاء الذكي</span>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+<div id="scrollBar"></div>
+<header class="hero-cover">
+  <canvas id="particles"></canvas>
+  <div class="overlay">
+    <span class="eyebrow">SAFAA · SMART DIGITAL SYSTEMS</span>
+    <h1 id="title">نظام <span class="grad-text">صفاء</span> الذكي</h1>
+    <p id="welcome" data-key="hero-welcome">منصة احترافية لتصميم المواقع والأنظمة الذكية</p>
+    <div class="animated-text" data-key="hero-animated">👋 أهلاً بيك في نظام صفاء الذكي</div>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="القائمة">☰</button>
+  <div class="nav-links" id="navLinks">
+  <a href="auth.html" data-key="nav-auth">حسابي</a>
+  <a href="index.html" data-key="nav-home">الرئيسية</a>
+  <a href="services.html" class="active" data-key="nav-services">الخدمات</a>
+  <a href="projects.html" data-key="nav-projects">المشاريع</a>
+  <a href="cv.html" data-key="nav-cv">CV</a>
+  <a href="form.html" data-key="nav-form">طلب خدمة</a>
+  <a href="contact.html" data-key="nav-contact">تواصل</a>
+  <button id="langBtn" onclick="toggleLang()" style="padding:9px 16px;border:1px solid rgba(20,217,180,0.4);border-radius:30px;background:rgba(20,217,180,0.08);color:#F7F4EE;font-family:Cairo,sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;transition:0.25s;">🌐 English</button>
+  </div>
+</div>
+
+<main>
+<h2 data-key="services-h2">💼 الخدمات</h2>
+<div class="grid">
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&h=400&q=80" alt="تصميم مواقع">
+    <h3 data-key="service-web">تصميم مواقع</h3>
+    <span class="card-price" data-key="service-web-price">يبدأ من 120$</span>
+  
+  <p class="card-desc" data-key="service-web-desc">تصميم وتطوير مواقع احترافية سريعة ومتجاوبة تناسب هوية عملك.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=400&q=80" alt="أنظمة إدارة">
+    <h3 data-key="service-sys">أنظمة إدارة</h3>
+    <span class="card-price" data-key="service-sys-price">يبدأ من 180$</span>
+  
+  <p class="card-desc" data-key="service-sys-desc">بناء أنظمة إدارة داخلية تنظّم العمليات وتوفّر الوقت والجهد.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&h=400&q=80" alt="تطبيقات">
+    <h3 data-key="service-app">تطبيقات</h3>
+    <span class="card-price" data-key="service-app-price">يبدأ من 350$</span>
+  
+  <p class="card-desc" data-key="service-app-desc">تطوير تطبيقات موبايل وويب بتجربة استخدام مريحة وأداء موثوق.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=400&q=80" alt="تحليل بيانات">
+    <h3 data-key="service-data">تحليل بيانات</h3>
+    <span class="card-price" data-key="service-data-price">يبدأ من 150$</span>
+  
+  <p class="card-desc" data-key="service-data-desc">تحليل بياناتك واستخراج تقارير ورؤى تساعدك على اتخاذ قرارات أدق.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=400&q=80" alt="أتمتة الأنظمة">
+    <h3 data-key="service-auto">أتمتة الأنظمة</h3>
+    <span class="card-price" data-key="service-auto-price">يبدأ من 200$</span>
+  
+  <p class="card-desc" data-key="service-auto-desc">أتمتة المهام المتكررة داخل نظامك لتقليل الأخطاء وزيادة الإنتاجية.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=600&h=400&q=80" alt="ذكاء اصطناعي">
+    <h3 data-key="service-ai">ذكاء اصطناعي</h3>
+    <span class="card-price" data-key="service-ai-price">يبدأ من 400$</span>
+  
+  <p class="card-desc" data-key="service-ai-desc">دمج حلول ذكاء اصطناعي داخل نظامك مثل الشات بوت والتوصيات الذكية.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&h=400&q=80" alt="استضافة ودعم فني">
+    <h3 data-key="service-host">استضافة ودعم فني</h3>
+    <span class="card-price" data-key="service-host-price">40$ / شهر</span>
+  
+  <p class="card-desc" data-key="service-host-desc">استضافة موثوقة ودعم فني مستمر لضمان استقرار موقعك أو نظامك.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=600&h=400&q=80" alt="تسويق رقمي">
+    <h3 data-key="service-market">تسويق رقمي</h3>
+    <span class="card-price" data-key="service-market-price">90$ / شهر</span>
+  
+  <p class="card-desc" data-key="service-market-desc">خطط تسويق رقمي تزيد من ظهورك وتجذب عملاء جدد لمشروعك.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1559028006-448665bd7c7f?auto=format&fit=crop&w=600&h=400&q=80" alt="تصميم UI/UX">
+    <h3 data-key="service-uiux">تصميم UI/UX</h3>
+    <span class="card-price" data-key="service-uiux-price">يبدأ من 100$</span>
+  
+  <p class="card-desc" data-key="service-uiux-desc">تصميم واجهات مستخدم جذابة وسهلة الاستخدام تعكس هوية علامتك.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&h=400&q=80" alt="أمن سيبراني">
+    <h3 data-key="service-security">أمن سيبراني</h3>
+    <span class="card-price" data-key="service-security-price">يبدأ من 250$</span>
+  
+  <p class="card-desc" data-key="service-security-desc">تأمين موقعك أو نظامك ضد الثغرات وحماية بيانات عملائك.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&h=400&q=80" alt="تكامل API">
+    <h3 data-key="service-api">تكامل API</h3>
+    <span class="card-price" data-key="service-api-price">يبدأ من 160$</span>
+  
+  <p class="card-desc" data-key="service-api-desc">ربط نظامك بخدمات خارجية (دفع، شحن، رسائل...) عبر واجهات API.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+  <div class="service">
+    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&h=400&q=80" alt="استشارات تقنية">
+    <h3 data-key="service-consult">استشارات تقنية</h3>
+    <span class="card-price" data-key="service-consult-price">60$ / ساعة</span>
+  
+  <p class="card-desc" data-key="service-consult-desc">استشارة تقنية لمساعدتك على اختيار الحل الأنسب لمشروعك.</p>
+  <a class="view-btn" href="form.html" data-key="service-view-btn">اطلب هذه الخدمة 🚀</a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <h3 class="grad-text" data-key="footer-brand">💎 نظام صفاء الذكي</h3>
+      <p data-key="footer-tagline">منصة احترافية لتصميم المواقع وطلب الخدمات الرقمية بذكاء واحترافية.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-links-h">روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html" data-key="nav-home">الرئيسية</a></li>
+        <li><a href="services.html" data-key="nav-services">الخدمات</a></li>
+        <li><a href="projects.html" data-key="nav-projects">المشاريع</a></li>
+        <li><a href="form.html" data-key="nav-form">طلب خدمة</a></li>
+        <li><a href="auth.html" data-key="nav-auth">حسابي</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-legal-h">قانوني</h4>
+      <ul>
+        <li><a href="stats.html" data-key="footer-stats">الإحصائيات</a></li>
+        <li><a href="privacy.html" data-key="footer-privacy">سياسة الخصوصية</a></li>
+        <li><a href="terms.html" data-key="footer-terms">شروط الاستخدام</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-contact-h">تواصل معنا</h4>
+      <ul>
+        <li data-key="contact-email">📧 البريد الإلكتروني: example@email.com</li>
+        <li data-key="contact-wa">📱 واتساب: +249 000 000 000</li>
+        <li data-key="contact-loc">📍 الموقع الجغرافي: السودان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-key="footer-copyright">© 2026 نظام صفاء الذكي — جميع الحقوق محفوظة. تصميم وتطوير صفاء.</p>
+  </div>
+</footer>
+
+<button id="secretBtn" onclick="changeTheme()" data-key="theme-btn">🎨 تغيير اللون</button>
+<button id="topBtn" onclick="scrollToTop()" title="للأعلى">↑</button>
+<a id="waBtn" href="https://wa.me/249000000000" target="_blank" title="واتساب">💬</a>
+<button id="chatBtn" onclick="toggleChat()" title="تواصل معنا">🗨️</button>
+<div id="chatPanel">
+  <div class="chat-header"><span data-key="chat-title">💬 تواصل مباشر</span><span onclick="toggleChat()">✕</span></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input">
+    <input id="chatInput" data-key="chat-placeholder" placeholder="اكتبي رسالتك..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+    <button onclick="sendChatMsg()">➤</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

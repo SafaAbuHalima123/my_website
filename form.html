@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>طلب خدمة | نظام صفاء الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#080A14">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="loader">
+  <span class="loader-logo">💎</span>
+  <span class="loader-text">نظام صفاء الذكي</span>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+<div id="scrollBar"></div>
+<header class="hero-cover">
+  <canvas id="particles"></canvas>
+  <div class="overlay">
+    <span class="eyebrow">SAFAA · SMART DIGITAL SYSTEMS</span>
+    <h1 id="title">نظام <span class="grad-text">صفاء</span> الذكي</h1>
+    <p id="welcome" data-key="hero-welcome">منصة احترافية لتصميم المواقع والأنظمة الذكية</p>
+    <div class="animated-text" data-key="hero-animated">👋 أهلاً بيك في نظام صفاء الذكي</div>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="القائمة">☰</button>
+  <div class="nav-links" id="navLinks">
+  <a href="auth.html" data-key="nav-auth">حسابي</a>
+  <a href="index.html" data-key="nav-home">الرئيسية</a>
+  <a href="services.html" data-key="nav-services">الخدمات</a>
+  <a href="projects.html" data-key="nav-projects">المشاريع</a>
+  <a href="cv.html" data-key="nav-cv">CV</a>
+  <a href="form.html" class="active" data-key="nav-form">طلب خدمة</a>
+  <a href="contact.html" data-key="nav-contact">تواصل</a>
+  <button id="langBtn" onclick="toggleLang()" style="padding:9px 16px;border:1px solid rgba(20,217,180,0.4);border-radius:30px;background:rgba(20,217,180,0.08);color:#F7F4EE;font-family:Cairo,sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;transition:0.25s;">🌐 English</button>
+  </div>
+</div>
+
+<main>
+<div class="card form-card">
+  <h2 data-key="form-h2">📋 طلب خدمة</h2>
+  <form action="save.php" method="POST">
+
+    <div class="form-group">
+      <label data-key="form-name-lbl">الاسم الكامل</label>
+      <input name="name" data-key="form-name-ph" placeholder="اكتب اسمك الكامل" required>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label data-key="form-email-lbl">الإيميل</label>
+        <input type="email" name="email" placeholder="example@email.com" required>
+      </div>
+      <div class="form-group">
+        <label data-key="form-phone-lbl">رقم الهاتف</label>
+        <input name="phone" data-key="form-phone-ph" placeholder="رقم الهاتف" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-country-lbl">الدولة</label>
+      <input name="country" data-key="form-country-ph" placeholder="الدولة">
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-service-lbl">نوع الخدمة</label>
+      <select name="service">
+        <option data-key="form-opt-web">تصميم موقع</option>
+        <option data-key="form-opt-sys">نظام إدارة</option>
+        <option data-key="form-opt-app">تطبيق</option>
+        <option data-key="form-opt-ai">ذكاء اصطناعي</option>
+        <option data-key="form-opt-data">تحليل بيانات</option>
+        <option data-key="form-opt-auto">أتمتة أنظمة</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-pkg-lbl">اختر الباقة المناسبة</label>
+      <div class="radio-group">
+        <label class="radio-option"><input type="radio" name="package" value="Starter" checked><span>Starter</span></label>
+        <label class="radio-option"><input type="radio" name="package" value="Pro"><span>Pro</span></label>
+        <label class="radio-option"><input type="radio" name="package" value="VIP"><span>VIP</span></label>
+        <label class="radio-option"><input type="radio" name="package" value="Business"><span>Business</span></label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-extras-lbl">مميزات إضافية (اختياري)</label>
+      <div class="checkbox-group">
+        <label class="checkbox-option"><input type="checkbox" name="extras[]" value="استضافة"><span data-key="form-extra-host">استضافة</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="extras[]" value="دومين"><span data-key="form-extra-domain">دومين</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="extras[]" value="صيانة شهرية"><span data-key="form-extra-maint">صيانة شهرية</span></label>
+        <label class="checkbox-option"><input type="checkbox" name="extras[]" value="دعم سريع"><span data-key="form-extra-support">دعم سريع 24 ساعة</span></label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-details-lbl">تفاصيل المشروع</label>
+      <textarea name="details" data-key="form-details-ph" placeholder="اكتب الهدف، الفكرة، الميزانية، والمدة المتوقعة"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-notes-lbl">ملاحظات إضافية (اختياري)</label>
+      <textarea name="notes" data-key="form-notes-ph" placeholder="أي ملاحظات إضافية"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label data-key="form-stars-lbl">قيّم تجربتك معنا</label>
+      <div class="stars">
+        <span onclick="rate(1)">★</span><span onclick="rate(2)">★</span><span onclick="rate(3)">★</span><span onclick="rate(4)">★</span><span onclick="rate(5)">★</span>
+      </div>
+    </div>
+    <input type="hidden" id="rating" name="rating">
+
+    <button type="submit" data-key="form-submit">إرسال الطلب 🚀</button>
+  </form>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <h3 class="grad-text" data-key="footer-brand">💎 نظام صفاء الذكي</h3>
+      <p data-key="footer-tagline">منصة احترافية لتصميم المواقع وطلب الخدمات الرقمية بذكاء واحترافية.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-links-h">روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html" data-key="nav-home">الرئيسية</a></li>
+        <li><a href="services.html" data-key="nav-services">الخدمات</a></li>
+        <li><a href="projects.html" data-key="nav-projects">المشاريع</a></li>
+        <li><a href="form.html" data-key="nav-form">طلب خدمة</a></li>
+        <li><a href="auth.html" data-key="nav-auth">حسابي</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-legal-h">قانوني</h4>
+      <ul>
+        <li><a href="stats.html" data-key="footer-stats">الإحصائيات</a></li>
+        <li><a href="privacy.html" data-key="footer-privacy">سياسة الخصوصية</a></li>
+        <li><a href="terms.html" data-key="footer-terms">شروط الاستخدام</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-contact-h">تواصل معنا</h4>
+      <ul>
+        <li data-key="contact-email">📧 البريد الإلكتروني: example@email.com</li>
+        <li data-key="contact-wa">📱 واتساب: +249 000 000 000</li>
+        <li data-key="contact-loc">📍 الموقع الجغرافي: السودان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-key="footer-copyright">© 2026 نظام صفاء الذكي — جميع الحقوق محفوظة. تصميم وتطوير صفاء.</p>
+  </div>
+</footer>
+
+<button id="secretBtn" onclick="changeTheme()" data-key="theme-btn">🎨 تغيير اللون</button>
+<button id="topBtn" onclick="scrollToTop()" title="للأعلى">↑</button>
+<a id="waBtn" href="https://wa.me/249000000000" target="_blank" title="واتساب">💬</a>
+<button id="chatBtn" onclick="toggleChat()" title="تواصل معنا">🗨️</button>
+<div id="chatPanel">
+  <div class="chat-header"><span data-key="chat-title">💬 تواصل مباشر</span><span onclick="toggleChat()">✕</span></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input">
+    <input id="chatInput" data-key="chat-placeholder" placeholder="اكتبي رسالتك..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+    <button onclick="sendChatMsg()">➤</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

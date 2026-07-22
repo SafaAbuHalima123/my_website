@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المشاريع | نظام صفاء الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#080A14">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="loader">
+  <span class="loader-logo">💎</span>
+  <span class="loader-text">نظام صفاء الذكي</span>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+<div id="scrollBar"></div>
+<header class="hero-cover">
+  <canvas id="particles"></canvas>
+  <div class="overlay">
+    <span class="eyebrow">SAFAA · SMART DIGITAL SYSTEMS</span>
+    <h1 id="title">نظام <span class="grad-text">صفاء</span> الذكي</h1>
+    <p id="welcome" data-key="hero-welcome">منصة احترافية لتصميم المواقع والأنظمة الذكية</p>
+    <div class="animated-text" data-key="hero-animated">👋 أهلاً بيك في نظام صفاء الذكي</div>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="القائمة">☰</button>
+  <div class="nav-links" id="navLinks">
+  <a href="auth.html" data-key="nav-auth">حسابي</a>
+  <a href="index.html" data-key="nav-home">الرئيسية</a>
+  <a href="services.html" data-key="nav-services">الخدمات</a>
+  <a href="projects.html" class="active" data-key="nav-projects">المشاريع</a>
+  <a href="cv.html" data-key="nav-cv">CV</a>
+  <a href="form.html" data-key="nav-form">طلب خدمة</a>
+  <a href="contact.html" data-key="nav-contact">تواصل</a>
+  <button id="langBtn" onclick="toggleLang()" style="padding:9px 16px;border:1px solid rgba(20,217,180,0.4);border-radius:30px;background:rgba(20,217,180,0.08);color:#F7F4EE;font-family:Cairo,sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;transition:0.25s;">🌐 English</button>
+  </div>
+</div>
+
+<main>
+<h2 data-key="projects-h2">🔥 المشاريع</h2>
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all" onclick="filterProjects('all')">الكل</button>
+  <button class="filter-btn" data-filter="web" onclick="filterProjects('web')">مواقع</button>
+  <button class="filter-btn" data-filter="system" onclick="filterProjects('system')">أنظمة</button>
+  <button class="filter-btn" data-filter="app" onclick="filterProjects('app')">تطبيقات</button>
+</div>
+<div class="grid">
+  <div class="project" data-cat="web">
+    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&h=400&q=80" alt="موقع شخصي">
+    <h3 data-key="project-personal">موقع شخصي</h3>
+    <span class="card-price" data-key="project-personal-price">50$</span>
+  
+  <p class="card-desc" data-key="project-personal-desc">موقع تعريفي أنيق لعرض الأعمال والخبرات الشخصية بتصميم عصري وسريع.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="system">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=400&q=80" alt="نظام مخازن">
+    <h3 data-key="project-warehouse">نظام مخازن</h3>
+    <span class="card-price" data-key="project-warehouse-price">180$</span>
+  
+  <p class="card-desc" data-key="project-warehouse-desc">نظام متكامل لإدارة المخزون والمنتجات وحركة البضاعة داخل وخارج المخزن.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="app">
+    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&h=400&q=80" alt="تطبيق خدمات">
+    <h3 data-key="project-service">تطبيق خدمات</h3>
+    <span class="card-price" data-key="project-service-price">300$</span>
+  
+  <p class="card-desc" data-key="project-service-desc">تطبيق يربط العملاء بمقدّمي الخدمات مع نظام حجز وطلب مباشر.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="system">
+    <img src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=600&h=400&q=80" alt="لوحة تحكم">
+    <h3 data-key="project-dashboard">لوحة تحكم</h3>
+    <span class="card-price" data-key="project-dashboard-price">200$</span>
+  
+  <p class="card-desc" data-key="project-dashboard-desc">لوحة تحكم شاملة لعرض البيانات والمؤشرات ومتابعة الأداء لحظة بلحظة.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="system">
+    <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&h=400&q=80" alt="نظام مدرسة كبيرة">
+    <h3 data-key="project-school">نظام مدرسة كبيرة</h3>
+    <span class="card-price" data-key="project-school-price">500$</span>
+  
+  <p class="card-desc" data-key="project-school-desc">نظام إدارة كامل لمدرسة كبيرة يغطي الطلاب والمعلمين والدرجات والحضور.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="app">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=400&q=80" alt="تطبيق موبايل">
+    <h3 data-key="project-mobile">تطبيق موبايل</h3>
+    <span class="card-price" data-key="project-mobile-price">350$</span>
+  
+  <p class="card-desc" data-key="project-mobile-desc">تطبيق موبايل متعدد المنصات بتجربة استخدام سلسة وأداء عالي.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="web">
+    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&h=400&q=80" alt="متجر إلكتروني">
+    <h3 data-key="project-store">متجر إلكتروني</h3>
+    <span class="card-price" data-key="project-store-price">220$</span>
+  
+  <p class="card-desc" data-key="project-store-desc">متجر إلكتروني متكامل مع سلة شراء وبوابة دفع وإدارة طلبات.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="system">
+    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&h=400&q=80" alt="نظام حجوزات">
+    <h3 data-key="project-booking">نظام حجوزات</h3>
+    <span class="card-price" data-key="project-booking-price">240$</span>
+  
+  <p class="card-desc" data-key="project-booking-desc">نظام حجوزات ذكي يدير المواعيد والحجوزات ويرسل تذكيرات تلقائية.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="app">
+    <img src="https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=600&h=400&q=80" alt="تطبيق توصيل">
+    <h3 data-key="project-delivery">تطبيق توصيل</h3>
+    <span class="card-price" data-key="project-delivery-price">300$</span>
+  
+  <p class="card-desc" data-key="project-delivery-desc">تطبيق توصيل يربط بين العميل والمندوب مع تتبع حي للطلب.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1526367790999-0150786686a2?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="system">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=400&q=80" alt="نظام حضور وانصراف">
+    <h3 data-key="project-attendance">نظام حضور وانصراف</h3>
+    <span class="card-price" data-key="project-attendance-price">220$</span>
+  
+  <p class="card-desc" data-key="project-attendance-desc">نظام حضور وانصراف رقمي يوثّق الدوام ويصدر تقارير شهرية دقيقة.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="web">
+    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&h=400&q=80" alt="منصة تعليمية">
+    <h3 data-key="project-elearning">منصة تعليمية</h3>
+    <span class="card-price" data-key="project-elearning-price">280$</span>
+  
+  <p class="card-desc" data-key="project-elearning-desc">منصة تعليمية تفاعلية لعرض الدورات والمحاضرات ومتابعة تقدّم الطلاب.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+  <div class="project" data-cat="app">
+    <img src="https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=600&h=400&q=80" alt="بوت واتساب ذكي">
+    <h3 data-key="project-bot">بوت واتساب ذكي</h3>
+    <span class="card-price" data-key="project-bot-price">150$</span>
+  
+  <p class="card-desc" data-key="project-bot-desc">بوت واتساب ذكي يرد تلقائيًا على استفسارات العملاء على مدار الساعة.</p>
+  <a class="view-btn" href="https://images.unsplash.com/photo-1611606063065-ee7946f0787a?auto=format&fit=crop&w=600&h=400&q=80" target="_blank" rel="noopener" data-key="project-view-btn">عرض المشروع 👁️</a>
+</div>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <h3 class="grad-text" data-key="footer-brand">💎 نظام صفاء الذكي</h3>
+      <p data-key="footer-tagline">منصة احترافية لتصميم المواقع وطلب الخدمات الرقمية بذكاء واحترافية.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-links-h">روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html" data-key="nav-home">الرئيسية</a></li>
+        <li><a href="services.html" data-key="nav-services">الخدمات</a></li>
+        <li><a href="projects.html" data-key="nav-projects">المشاريع</a></li>
+        <li><a href="form.html" data-key="nav-form">طلب خدمة</a></li>
+        <li><a href="auth.html" data-key="nav-auth">حسابي</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-legal-h">قانوني</h4>
+      <ul>
+        <li><a href="stats.html" data-key="footer-stats">الإحصائيات</a></li>
+        <li><a href="privacy.html" data-key="footer-privacy">سياسة الخصوصية</a></li>
+        <li><a href="terms.html" data-key="footer-terms">شروط الاستخدام</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-contact-h">تواصل معنا</h4>
+      <ul>
+        <li data-key="contact-email">📧 البريد الإلكتروني: example@email.com</li>
+        <li data-key="contact-wa">📱 واتساب: +249 000 000 000</li>
+        <li data-key="contact-loc">📍 الموقع الجغرافي: السودان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-key="footer-copyright">© 2026 نظام صفاء الذكي — جميع الحقوق محفوظة. تصميم وتطوير صفاء.</p>
+  </div>
+</footer>
+
+<button id="secretBtn" onclick="changeTheme()" data-key="theme-btn">🎨 تغيير اللون</button>
+<button id="topBtn" onclick="scrollToTop()" title="للأعلى">↑</button>
+<a id="waBtn" href="https://wa.me/249000000000" target="_blank" title="واتساب">💬</a>
+<button id="chatBtn" onclick="toggleChat()" title="تواصل معنا">🗨️</button>
+<div id="chatPanel">
+  <div class="chat-header"><span data-key="chat-title">💬 تواصل مباشر</span><span onclick="toggleChat()">✕</span></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input">
+    <input id="chatInput" data-key="chat-placeholder" placeholder="اكتبي رسالتك..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+    <button onclick="sendChatMsg()">➤</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

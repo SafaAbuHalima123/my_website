@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الرئيسية | نظام صفاء الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#080A14">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="loader">
+  <span class="loader-logo">💎</span>
+  <span class="loader-text">نظام صفاء الذكي</span>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+<div id="scrollBar"></div>
+<header class="hero-cover">
+  <canvas id="particles"></canvas>
+  <div class="overlay">
+    <span class="eyebrow">SAFAA · SMART DIGITAL SYSTEMS</span>
+    <h1 id="title">نظام <span class="grad-text">صفاء</span> الذكي</h1>
+    <p id="welcome" data-key="hero-welcome">منصة احترافية لتصميم المواقع والأنظمة الذكية</p>
+    <div class="animated-text" data-key="hero-animated">👋 أهلاً بيك في نظام صفاء الذكي</div>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="القائمة">☰</button>
+  <div class="nav-links" id="navLinks">
+  <a href="auth.html" data-key="nav-auth">حسابي</a>
+  <a href="index.html" class="active" data-key="nav-home">الرئيسية</a>
+  <a href="services.html" data-key="nav-services">الخدمات</a>
+  <a href="projects.html" data-key="nav-projects">المشاريع</a>
+  <a href="cv.html" data-key="nav-cv">CV</a>
+  <a href="form.html" data-key="nav-form">طلب خدمة</a>
+  <a href="contact.html" data-key="nav-contact">تواصل</a>
+  <button id="langBtn" onclick="toggleLang()" style="padding:9px 16px;border:1px solid rgba(20,217,180,0.4);border-radius:30px;background:rgba(20,217,180,0.08);color:#F7F4EE;font-family:Cairo,sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;transition:0.25s;">🌐 English</button>
+  </div>
+</div>
+
+<main>
+<div class="intro-wrap">
+  <div class="intro-avatar" aria-hidden="true">👩‍💻</div>
+  <div class="intro-text">
+    <span class="eyebrow" data-key="intro-eyebrow">SAY HELLO</span>
+    <h2 data-key="intro-h2">👋 مرحبًا، أنا صفاء – مطورة مواقع</h2>
+    <p data-key="intro-p">أصمم وأبني مواقع وأنظمة رقمية احترافية تخدم أصحاب المشاريع من أول فكرة وحتى منتج شغّال فعليًا.</p>
+    <div class="intro-actions">
+      <a class="btn-pill primary" href="projects.html" data-key="intro-btn-projects">View Projects 🔥</a>
+      <a class="btn-pill ghost" href="contact.html" data-key="intro-btn-contact">Contact Me 💬</a>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2 data-key="home-h2">🚀 حلول رقمية احترافية</h2>
+  <p style="text-align:center;" data-key="home-p">نحوّل أفكارك إلى مواقع وأنظمة ذكية متكاملة، من أول فكرة على الورق وحتى نظام فعلي شغّال بيخدم عملاءك يوميًا.</p>
+  <div class="hero-actions">
+    <a class="btn-pill primary" href="projects.html" data-key="home-btn-proj">المشاريع 🔥</a>
+    <a class="btn-pill ghost" href="form.html" data-key="home-btn-form">اطلب خدمة 🚀</a>
+    <a class="btn-pill ghost" href="auth.html" data-key="home-btn-auth">إنشاء حساب / تسجيل الدخول 🔐</a>
+  </div>
+</div>
+
+<h2 data-key="about-h2">👤 رحلتي الإبداعية</h2>
+<div class="journey-wrap">
+  <div class="journey-art" aria-hidden="true">💎</div>
+  <div class="journey-text">
+    <p data-key="about-p1">أنا صفاء، طالبة علوم الحاسوب وأطور أنظمة حديثة. بدأت رحلتي بشغف حقيقي في عالم البرمجة منذ أول سطر كود كتبته، وتطورت خطوة بخطوة من تصميم صفحات ثابتة بسيطة إلى بناء أنظمة رقمية متكاملة تخدم أصحاب المشاريع والشركات الصغيرة والمتوسطة، بدءاً من فكرة المشروع وحتى قاعدة البيانات والواجهة النهائية.</p>
+    <p data-key="about-p1b">على مدار رحلتي تعلّمت إن التصميم الجميل وحده ما يكفي، والأداء القوي وحده ما يكفي — لازم الاتنين يشتغلوا مع بعض عشان يطلع منتج رقمي حقيقي يقدر يخدم مستخدم حقيقي.</p>
+  </div>
+</div>
+<div class="journey-timeline">
+  <div class="tl-step"><span class="tl-dot">🌱</span><p data-key="journey-step-1">أول سطر كود</p></div>
+  <div class="tl-step"><span class="tl-dot">🎨</span><p data-key="journey-step-2">تصميم واجهات</p></div>
+  <div class="tl-step"><span class="tl-dot">⚙️</span><p data-key="journey-step-3">أنظمة متكاملة</p></div>
+  <div class="tl-step"><span class="tl-dot">🚀</span><p data-key="journey-step-4">نظام صفاء الذكي</p></div>
+</div>
+
+<h2 data-key="vision-h2">🧠 رؤية المشروع</h2>
+<div class="vision-wrap">
+  <div class="vision-card">
+    <span class="vision-icon">🔗</span>
+    <p data-key="vision-p">نظام ذكي لطلب الخدمات الرقمية بسهولة واحترافية، بيربط بين العميل ومقدّم الخدمة في مكان واحد: طلب، متابعة، تواصل مباشر، وتسليم — كله من نفس المنصة وبدون تعقيد.</p>
+  </div>
+  <div class="vision-card">
+    <span class="vision-icon">🌌</span>
+    <p data-key="vision-p2">الرؤية بعيدة المدى إن النظام يتحوّل لمنصة متكاملة تدير كل مراحل المشروع الرقمي، من أول استشارة أولية للعميل وحتى تسليم المنتج النهائي ومتابعة الصيانة بعد الإطلاق.</p>
+  </div>
+</div>
+
+<h2 data-key="home-stats-h" style="margin-top:50px;">📊 أرقام تتكلم عن نفسها</h2>
+<div class="stats-section">
+  <div class="stats-box">
+    <span class="stat-icon">📁</span>
+    <span class="stat-num" data-count="42" data-suffix="+">0</span>
+    <span class="stat-label" data-key="home-stat-1">مشروع منجز</span>
+  </div>
+  <div class="stats-box">
+    <span class="stat-icon">😊</span>
+    <span class="stat-num" data-count="30" data-suffix="+">0</span>
+    <span class="stat-label" data-key="home-stat-2">عميل راضٍ</span>
+  </div>
+  <div class="stats-box">
+    <span class="stat-icon">🕒</span>
+    <span class="stat-num" data-count="3" data-suffix="+">0</span>
+    <span class="stat-label" data-key="home-stat-3">سنوات خبرة</span>
+  </div>
+  <div class="stats-box">
+    <span class="stat-icon">🛠️</span>
+    <span class="stat-num" data-count="24" data-suffix="/7">0</span>
+    <span class="stat-label" data-key="home-stat-4">دعم فني</span>
+  </div>
+</div>
+
+<h2 data-key="home-why-h">✨ ليه تختارين نظام صفاء؟</h2>
+<div class="why-grid">
+  <div class="why-card reveal">
+    <span style="font-size:30px;">⚡</span>
+    <h3 data-key="home-why-1-t">⚡ تسليم سريع</h3>
+    <p data-key="home-why-1-d">نلتزم بالمواعيد المتفق عليها من أول يوم للمشروع وحتى التسليم النهائي.</p>
+  </div>
+  <div class="why-card reveal">
+    <span style="font-size:30px;">🎯</span>
+    <h3 data-key="home-why-2-t">🎯 تصميم مخصص</h3>
+    <p data-key="home-why-2-d">كل مشروع بنصممه من الصفر حسب هوية عملك، بدون قوالب جاهزة.</p>
+  </div>
+  <div class="why-card reveal">
+    <span style="font-size:30px;">🔒</span>
+    <h3 data-key="home-why-3-t">🔒 أمان وموثوقية</h3>
+    <p data-key="home-why-3-d">بياناتك وبيانات عملائك محمية بأحدث معايير الحماية والتشفير.</p>
+  </div>
+  <div class="why-card reveal">
+    <span style="font-size:30px;">📈</span>
+    <h3 data-key="home-why-4-t">📈 دعم مستمر</h3>
+    <p data-key="home-why-4-d">مانسيبك بعد التسليم، متابعة ودعم فني مستمر لضمان استمرارية النظام.</p>
+  </div>
+</div>
+
+<h2 data-key="home-testi-h">💬 آراء عملائنا</h2>
+<div class="testi-grid">
+  <div class="testi-card reveal">
+    <p class="testi-text" data-key="home-testi-1-t">تعامل احترافي جدًا والتسليم كان قبل الموعد. النظام سهل وسريع.</p>
+    <p class="testi-name" data-key="home-testi-1-n">محمد أحمد — صاحب متجر إلكتروني</p>
+  </div>
+  <div class="testi-card reveal">
+    <p class="testi-text" data-key="home-testi-2-t">التصميم شكله راقي والتواصل كان واضح من أول خطوة للآخرة.</p>
+    <p class="testi-name" data-key="home-testi-2-n">سارة عبدالله — مديرة مشروع</p>
+  </div>
+  <div class="testi-card reveal">
+    <p class="testi-text" data-key="home-testi-3-t">النظام غيّر طريقة شغلي بالكامل، وفّر عليّ وقت كبير جدًا.</p>
+    <p class="testi-name" data-key="home-testi-3-n">عمر الطيب — صاحب مشروع صغير</p>
+  </div>
+</div>
+
+<h2 data-key="home-faq-h">❓ أسئلة شائعة</h2>
+<div class="faq-list">
+  <details class="faq-item reveal">
+    <summary data-key="home-faq-1-q">كم يستغرق تنفيذ المشروع؟</summary>
+    <p data-key="home-faq-1-a">يعتمد على حجم المشروع، غالبًا بين أسبوع لموقع بسيط وحتى شهر لنظام متكامل.</p>
+  </details>
+  <details class="faq-item reveal">
+    <summary data-key="home-faq-2-q">هل يوجد دعم بعد التسليم؟</summary>
+    <p data-key="home-faq-2-a">أكيد، بنقدّم باقات صيانة ودعم فني شهري حسب احتياجك.</p>
+  </details>
+  <details class="faq-item reveal">
+    <summary data-key="home-faq-3-q">كيف أطلب خدمة؟</summary>
+    <p data-key="home-faq-3-a">من صفحة «طلب خدمة»، تعبّي التفاصيل ونتواصل معاكِ خلال ٢٤ ساعة.</p>
+  </details>
+  <details class="faq-item reveal">
+    <summary data-key="home-faq-4-q">هل بياناتي آمنة عند التسجيل؟</summary>
+    <p data-key="home-faq-4-a">نعم، بنستخدم تشفير كلمات المرور وتأكيد عبر رمز يُرسل لبريدك الإلكتروني.</p>
+  </details>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <h3 class="grad-text" data-key="footer-brand">💎 نظام صفاء الذكي</h3>
+      <p data-key="footer-tagline">منصة احترافية لتصميم المواقع وطلب الخدمات الرقمية بذكاء واحترافية.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-links-h">روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html" data-key="nav-home">الرئيسية</a></li>
+        <li><a href="services.html" data-key="nav-services">الخدمات</a></li>
+        <li><a href="projects.html" data-key="nav-projects">المشاريع</a></li>
+        <li><a href="form.html" data-key="nav-form">طلب خدمة</a></li>
+        <li><a href="auth.html" data-key="nav-auth">حسابي</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-legal-h">قانوني</h4>
+      <ul>
+        <li><a href="stats.html" data-key="footer-stats">الإحصائيات</a></li>
+        <li><a href="privacy.html" data-key="footer-privacy">سياسة الخصوصية</a></li>
+        <li><a href="terms.html" data-key="footer-terms">شروط الاستخدام</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-contact-h">تواصل معنا</h4>
+      <ul>
+        <li data-key="contact-email">📧 البريد الإلكتروني: example@email.com</li>
+        <li data-key="contact-wa">📱 واتساب: +249 000 000 000</li>
+        <li data-key="contact-loc">📍 الموقع الجغرافي: السودان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-key="footer-copyright">© 2026 نظام صفاء الذكي — جميع الحقوق محفوظة. تصميم وتطوير صفاء.</p>
+  </div>
+</footer>
+
+<button id="secretBtn" onclick="changeTheme()" data-key="theme-btn">🎨 تغيير اللون</button>
+<button id="topBtn" onclick="scrollToTop()" title="للأعلى">↑</button>
+<a id="waBtn" href="https://wa.me/249000000000" target="_blank" title="واتساب">💬</a>
+<button id="chatBtn" onclick="toggleChat()" title="تواصل معنا">🗨️</button>
+<div id="chatPanel">
+  <div class="chat-header"><span data-key="chat-title">💬 تواصل مباشر</span><span onclick="toggleChat()">✕</span></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input">
+    <input id="chatInput" data-key="chat-placeholder" placeholder="اكتبي رسالتك..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+    <button onclick="sendChatMsg()">➤</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
