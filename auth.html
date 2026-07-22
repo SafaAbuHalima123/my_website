@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تسجيل / دخول | نظام صفاء الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#080A14">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+</head>
+<body>
+
+<div id="loader">
+  <span class="loader-logo">💎</span>
+  <span class="loader-text">نظام صفاء الذكي</span>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+<div id="scrollBar"></div>
+<header class="hero-cover">
+  <canvas id="particles"></canvas>
+  <div class="overlay">
+    <span class="eyebrow">SAFAA · SMART DIGITAL SYSTEMS</span>
+    <h1 id="title">نظام <span class="grad-text">صفاء</span> الذكي</h1>
+    <p id="welcome" data-key="hero-welcome">منصة احترافية لتصميم المواقع والأنظمة الذكية</p>
+    <div class="animated-text" data-key="hero-animated">👋 أهلاً بيك في نظام صفاء الذكي</div>
+  </div>
+</header>
+
+<div class="nav">
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()" aria-label="القائمة">☰</button>
+  <div class="nav-links" id="navLinks">
+  <a href="auth.html" class="active" data-key="nav-auth">حسابي</a>
+  <a href="index.html" data-key="nav-home">الرئيسية</a>
+  <a href="services.html" data-key="nav-services">الخدمات</a>
+  <a href="projects.html" data-key="nav-projects">المشاريع</a>
+  <a href="cv.html" data-key="nav-cv">CV</a>
+  <a href="form.html" data-key="nav-form">طلب خدمة</a>
+  <a href="contact.html" data-key="nav-contact">تواصل</a>
+  <button id="langBtn" onclick="toggleLang()" style="padding:9px 16px;border:1px solid rgba(20,217,180,0.4);border-radius:30px;background:rgba(20,217,180,0.08);color:#F7F4EE;font-family:Cairo,sans-serif;font-weight:700;font-size:13.5px;cursor:pointer;transition:0.25s;">🌐 English</button>
+  </div>
+</div>
+
+<main>
+<div class="card form-card">
+  <div class="auth-tabs">
+    <button class="auth-tab active" id="tabRegister" onclick="switchAuthTab('register')" data-key="auth-tab-register">إنشاء حساب</button>
+    <button class="auth-tab" id="tabLogin" onclick="switchAuthTab('login')" data-key="auth-tab-login">تسجيل الدخول</button>
+  </div>
+  <a href="index.html" class="auth-skip" data-key="auth-skip">🏠 تخطي والذهاب للرئيسية</a>
+
+  <form id="registerStep1" class="auth-step active" onsubmit="return doRegister(event)">
+    <h2 style="font-size:20px;" data-key="auth-h2-register">👤 إنشاء حساب جديد</h2>
+    <div class="form-group"><label data-key="auth-name-lbl">الاسم الكامل</label><input id="regName" required></div>
+    <div class="form-group"><label data-key="auth-email-lbl">البريد الإلكتروني</label><input type="email" id="regEmail" required></div>
+    <div class="form-group"><label data-key="auth-pass-lbl">كلمة المرور</label><input type="password" id="regPass" minlength="6" required></div>
+    <div class="form-group"><label data-key="auth-pass-confirm-lbl">تأكيد كلمة المرور</label><input type="password" id="regPassConfirm" minlength="6" required></div>
+    <button type="submit" data-key="auth-register-btn">إنشاء الحساب ✅</button>
+    <p class="auth-error" id="regError"></p>
+  </form>
+
+  <form id="loginStep" class="auth-step" onsubmit="return doLogin(event)">
+    <h2 style="font-size:20px;" data-key="auth-h2-login">🔓 تسجيل الدخول</h2>
+    <div class="form-group"><label data-key="auth-email-lbl">البريد الإلكتروني</label><input type="email" id="loginEmail" required></div>
+    <div class="form-group"><label data-key="auth-pass-lbl">كلمة المرور</label><input type="password" id="loginPass" required></div>
+    <button type="submit" data-key="auth-login-btn">دخول 🚀</button>
+    <p class="auth-error" id="loginError"></p>
+  </form>
+</div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-col footer-brand">
+      <h3 class="grad-text" data-key="footer-brand">💎 نظام صفاء الذكي</h3>
+      <p data-key="footer-tagline">منصة احترافية لتصميم المواقع وطلب الخدمات الرقمية بذكاء واحترافية.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-links-h">روابط سريعة</h4>
+      <ul>
+        <li><a href="index.html" data-key="nav-home">الرئيسية</a></li>
+        <li><a href="services.html" data-key="nav-services">الخدمات</a></li>
+        <li><a href="projects.html" data-key="nav-projects">المشاريع</a></li>
+        <li><a href="form.html" data-key="nav-form">طلب خدمة</a></li>
+        <li><a href="auth.html" data-key="nav-auth">حسابي</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-legal-h">قانوني</h4>
+      <ul>
+        <li><a href="stats.html" data-key="footer-stats">الإحصائيات</a></li>
+        <li><a href="privacy.html" data-key="footer-privacy">سياسة الخصوصية</a></li>
+        <li><a href="terms.html" data-key="footer-terms">شروط الاستخدام</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-key="footer-contact-h">تواصل معنا</h4>
+      <ul>
+        <li data-key="contact-email">📧 البريد الإلكتروني: example@email.com</li>
+        <li data-key="contact-wa">📱 واتساب: +249 000 000 000</li>
+        <li data-key="contact-loc">📍 الموقع الجغرافي: السودان</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-key="footer-copyright">© 2026 نظام صفاء الذكي — جميع الحقوق محفوظة. تصميم وتطوير صفاء.</p>
+  </div>
+</footer>
+
+<button id="secretBtn" onclick="changeTheme()" data-key="theme-btn">🎨 تغيير اللون</button>
+<button id="topBtn" onclick="scrollToTop()" title="للأعلى">↑</button>
+<a id="waBtn" href="https://wa.me/249000000000" target="_blank" title="واتساب">💬</a>
+<button id="chatBtn" onclick="toggleChat()" title="تواصل معنا">🗨️</button>
+<div id="chatPanel">
+  <div class="chat-header"><span data-key="chat-title">💬 تواصل مباشر</span><span onclick="toggleChat()">✕</span></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="chat-input">
+    <input id="chatInput" data-key="chat-placeholder" placeholder="اكتبي رسالتك..." onkeydown="if(event.key==='Enter')sendChatMsg()">
+    <button onclick="sendChatMsg()">➤</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
