@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>لوحة التحكم | نظام صفاء الذكي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@500;700;900&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body{ padding-top:20px; }
+  #gate{ max-width:380px; margin:80px auto; text-align:center; }
+  #dash{ display:none; max-width:1100px; margin:0 auto; padding:0 20px 60px; }
+  .adm-stats{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:14px; margin-bottom:30px; }
+  .adm-box{ background:linear-gradient(180deg,var(--surface),var(--surface-2)); border:1px solid var(--line); border-radius:14px; padding:18px; text-align:center; }
+  .adm-box .n{ font-size:26px; font-weight:800; color:var(--teal); font-family:'Cairo',sans-serif; display:block; }
+  .adm-box .l{ font-size:12.5px; color:var(--muted); }
+  .adm-tabs{ display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+  .adm-tab{ padding:9px 18px; border-radius:30px; border:1px solid var(--line); background:transparent; color:var(--text); cursor:pointer; font-family:'Cairo',sans-serif; font-size:13.5px; }
+  .adm-tab.active{ background:var(--teal); color:#02110f; border-color:var(--teal); font-weight:700; }
+  .adm-panel{ display:none; }
+  .adm-panel.active{ display:block; }
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  th, td{ padding:10px; border-bottom:1px solid var(--line); text-align:right; vertical-align:middle; }
+  th{ color:var(--teal); font-family:'Cairo',sans-serif; }
+  select, .adm-del, .adm-reply-btn{ font-family:'Tajawal',sans-serif; font-size:12.5px; padding:6px 10px; border-radius:8px; border:1px solid var(--line); background:rgba(255,255,255,0.04); color:var(--text); cursor:pointer; }
+  .adm-del{ color:#ff5a5a; }
+  .sess-row{ display:flex; justify-content:space-between; align-items:center; padding:10px 14px; border:1px solid var(--line); border-radius:10px; margin-bottom:8px; cursor:pointer; }
+  .sess-row:hover{ border-color:var(--teal); }
+  .sess-unread{ background:#ff5a5a; color:#fff; border-radius:50%; min-width:18px; height:18px; font-size:11px; display:inline-flex; align-items:center; justify-content:center; }
+  .adm-chat-box{ max-height:300px; overflow-y:auto; border:1px solid var(--line); border-radius:10px; padding:12px; margin:14px 0; display:flex; flex-direction:column; gap:8px; }
+  .adm-msg{ max-width:75%; padding:8px 12px; border-radius:10px; font-size:13px; }
+  .adm-msg.visitor{ align-self:flex-start; background:rgba(255,255,255,0.06); }
+  .adm-msg.reply{ align-self:flex-end; background:var(--teal); color:#02110f; }
+  .adm-reply-row{ display:flex; gap:8px; }
+  .adm-reply-row input{ flex:1; }
+  #tableWrap{ overflow-x:auto; }
+</style>
+</head>
+<body>
+
+<div id="gate">
+  <h2>🔑 دخول لوحة التحكم</h2>
+  <p class="muted-note">أدخلي مفتاح الأدمن (نفس المفتاح المضبوط في admin.php وchat.php)</p>
+  <div class="form-group"><input id="gateKey" type="password" placeholder="مفتاح الدخول"></div>
+  <button type="submit" onclick="enterDash()">دخول 🚀</button>
+  <p class="auth-error" id="gateErr" style="display:none;"></p>
+</div>
+
+<div id="dash">
+  <h2 style="text-align:center;">📊 لوحة تحكم نظام صفاء</h2>
+  <div class="adm-stats" id="admStats"></div>
+
+  <div class="adm-tabs">
+    <button class="adm-tab active" data-tab="requests" onclick="switchTab('requests')">📋 طلبات الخدمة</button>
+    <button class="adm-tab" data-tab="messages" onclick="switchTab('messages')">✉️ رسائل التواصل</button>
+    <button class="adm-tab" data-tab="chat" onclick="switchTab('chat')">💬 المحادثات الحية</button>
+  </div>
+
+  <div class="adm-panel active" id="panel-requests">
+    <div id="tableWrap"><table id="reqTable"><thead><tr>
+      <th>الاسم</th><th>البريد</th><th>الخدمة</th><th>الباقة</th><th>التقييم</th><th>الحالة</th><th>التاريخ</th>
+    </tr></thead><tbody></tbody></table></div>
+  </div>
+
+  <div class="adm-panel" id="panel-messages">
+    <div id="tableWrap2"><table id="msgTable"><thead><tr>
+      <th>الاسم</th><th>البريد</th><th>الرسالة</th><th>التاريخ</th><th></th>
+    </tr></thead><tbody></tbody></table></div>
+  </div>
+
+  <div class="adm-panel" id="panel-chat">
+    <div id="sessList"></div>
+    <div id="chatView" style="display:none;">
+      <button onclick="closeChatView()">◀ رجوع لكل المحادثات</button>
+      <div class="adm-chat-box" id="admChatBox"></div>
+      <div class="adm-reply-row">
+        <input id="admReplyInput" placeholder="اكتبي ردك...">
+        <button class="adm-reply-btn" onclick="sendAdminReply()">إرسال ➤</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let ADMIN_KEY = '';
+let currentSid = '';
+
+function enterDash(){
+  ADMIN_KEY = document.getElementById('gateKey').value.trim();
+  fetch('admin.php?action=stats&admin_key=' + encodeURIComponent(ADMIN_KEY))
+    .then(r => r.json())
+    .then(d => {
+      if (!d.ok) { document.getElementById('gateErr').textContent = d.msg || 'مفتاح غير صحيح'; document.getElementById('gateErr').style.display='block'; return; }
+      sessionStorage.setItem('safaaAdminKey', ADMIN_KEY);
+      document.getElementById('gate').style.display = 'none';
+      document.getElementById('dash').style.display = 'block';
+      renderStats(d);
+      loadRequests();
+      loadMessages();
+      loadSessions();
+    })
+    .catch(() => { document.getElementById('gateErr').textContent = 'تعذّر الاتصال بالسيرفر'; document.getElementById('gateErr').style.display='block'; });
+}
+
+function renderStats(d){
+  document.getElementById('admStats').innerHTML = `
+    <div class="adm-box"><span class="n">${d.today_visitors}</span><span class="l">زوار اليوم</span></div>
+    <div class="adm-box"><span class="n">${d.total_requests}</span><span class="l">إجمالي الطلبات</span></div>
+    <div class="adm-box"><span class="n">${d.new_requests}</span><span class="l">طلبات جديدة</span></div>
+    <div class="adm-box"><span class="n">${d.total_messages}</span><span class="l">رسائل تواصل</span></div>
+    <div class="adm-box"><span class="n">${d.total_users}</span><span class="l">مستخدمين مسجّلين</span></div>
+    <div class="adm-box"><span class="n">${d.avg_rating || 0}⭐</span><span class="l">متوسط التقييم</span></div>
+  `;
+}
+
+function switchTab(name){
+  document.querySelectorAll('.adm-tab').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+  document.querySelectorAll('.adm-panel').forEach(p => p.classList.toggle('active', p.id === 'panel-' + name));
+}
+
+const statusText = { new:'🆕 جديد', in_progress:'⏳ قيد التنفيذ', done:'✅ تم التسليم', cancelled:'❌ ملغي' };
+
+function loadRequests(){
+  fetch('admin.php?action=requests&admin_key=' + encodeURIComponent(ADMIN_KEY))
+    .then(r => r.json()).then(d => {
+      if (!d.ok) return;
+      const tbody = document.querySelector('#reqTable tbody');
+      tbody.innerHTML = d.requests.map(r => `
+        <tr>
+          <td>${r.full_name}</td><td>${r.email}</td><td>${r.service}</td><td>${r.package || '—'}</td>
+          <td>${'⭐'.repeat(r.rating || 0) || '—'}</td>
+          <td>
+            <select onchange="updateStatus(${r.id}, this.value)">
+              ${Object.keys(statusText).map(s => `<option value="${s}" ${s===r.status?'selected':''}>${statusText[s]}</option>`).join('')}
+            </select>
+          </td>
+          <td>${r.created_at}</td>
+        </tr>`).join('');
+    });
+}
+
+function updateStatus(id, status){
+  fetch('admin.php', { method:'POST', body:new URLSearchParams({ action:'update_status', admin_key:ADMIN_KEY, id, status }) })
+    .then(r => r.json()).then(d => { if(!d.ok) alert('تعذّر التحديث'); });
+}
+
+function loadMessages(){
+  fetch('admin.php?action=messages&admin_key=' + encodeURIComponent(ADMIN_KEY))
+    .then(r => r.json()).then(d => {
+      if (!d.ok) return;
+      const tbody = document.querySelector('#msgTable tbody');
+      tbody.innerHTML = d.messages.map(m => `
+        <tr>
+          <td>${m.sender}</td><td>${m.email}</td><td>${m.message}</td><td>${m.created_at}</td>
+          <td><button class="adm-del" onclick="deleteMessage(${m.id})">🗑️ حذف</button></td>
+        </tr>`).join('');
+    });
+}
+
+function deleteMessage(id){
+  if (!confirm('تأكيد حذف الرسالة؟')) return;
+  fetch('admin.php', { method:'POST', body:new URLSearchParams({ action:'delete_message', admin_key:ADMIN_KEY, id }) })
+    .then(r => r.json()).then(() => loadMessages());
+}
+
+function loadSessions(){
+  fetch('chat.php?action=admin_sessions&admin_key=' + encodeURIComponent(ADMIN_KEY))
+    .then(r => r.json()).then(d => {
+      if (!d.ok) return;
+      const box = document.getElementById('sessList');
+      if (d.sessions.length === 0) { box.innerHTML = '<p class="muted-note">لا توجد محادثات بعد.</p>'; return; }
+      box.innerHTML = d.sessions.map(s => `
+        <div class="sess-row" onclick="openChatView('${s.session_id}')">
+          <span>🧑 ${s.session_id.slice(0, 14)}… — آخر رسالة: ${s.last_msg}</span>
+          ${s.unread > 0 ? `<span class="sess-unread">${s.unread}</span>` : ''}
+        </div>`).join('');
+    });
+}
+
+function openChatView(sid){
+  currentSid = sid;
+  document.getElementById('sessList').style.display = 'none';
+  document.getElementById('chatView').style.display = 'block';
+  loadChatView();
+}
+
+function closeChatView(){
+  document.getElementById('sessList').style.display = 'block';
+  document.getElementById('chatView').style.display = 'none';
+  loadSessions();
+}
+
+function loadChatView(){
+  fetch('chat.php?action=admin_fetch&sid=' + encodeURIComponent(currentSid) + '&admin_key=' + encodeURIComponent(ADMIN_KEY))
+    .then(r => r.json()).then(d => {
+      if (!d.ok) return;
+      const box = document.getElementById('admChatBox');
+      box.innerHTML = d.messages.map(m => `<div class="adm-msg ${m.is_admin_reply == 1 ? 'reply' : 'visitor'}">${m.message}</div>`).join('');
+      box.scrollTop = box.scrollHeight;
+    });
+}
+
+function sendAdminReply(){
+  const input = document.getElementById('admReplyInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  input.value = '';
+  fetch('chat.php', { method:'POST', body:new URLSearchParams({ action:'admin_reply', admin_key:ADMIN_KEY, sid:currentSid, message:msg }) })
+    .then(() => loadChatView());
+}
+
+/* دخول تلقائي لو المفتاح محفوظ بالفعل بهذه الجلسة */
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = sessionStorage.getItem('safaaAdminKey');
+  if (saved) { document.getElementById('gateKey').value = saved; enterDash(); }
+});
+setInterval(() => { if (document.getElementById('dash').style.display === 'block') loadSessions(); }, 15000);
+</script>
+</body>
+</html>
